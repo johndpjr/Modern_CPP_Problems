@@ -28,6 +28,14 @@ public:
     Temperature operator-(Temperature other) {
         return Temperature(getCelsius() - other.getCelsius());
     }
+
+    Temperature operator*(long double multiplier) {
+        return Temperature(getCelsius() * multiplier);
+    }
+
+    Temperature operator/(long double divisor) {
+        return Temperature(getCelsius() / divisor);
+    }
 };
 
 Temperature operator"" _deg(long double val) {
@@ -42,10 +50,10 @@ Temperature operator"" _K(long double val) {
 
 
 int main() {
-    Temperature temp{15.0_deg};
-    Temperature temp2{250.0_f};
+    Temperature temp{100.0_deg};
+    Temperature temp2{50.0_deg};
 
-    Temperature t1 = temp + temp2;
+    Temperature t1 = temp / 2;
     std::cout << "Celsius: " << t1.getCelsius()
               << "\nFahrenheit: " << t1.getFahrenheit()
               << "\nKelvin: " << t1.getKelvin()
